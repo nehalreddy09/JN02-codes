@@ -1,0 +1,67 @@
+#include <iostream>
+#define SIZE 2
+using namespace std;
+
+class stack
+{
+    int data[SIZE];
+    int top;
+    
+    public:
+     stack()
+     {
+         top=-1;
+     }
+     void push(int element)
+     {
+         if (isFull()==1)
+             cout<<"stack is Full....";
+         else 
+             data[++top]=element;   
+     }
+     int pop()
+     {
+        if (isEmpty()==1)
+            return -1;
+        else
+            return data[top--];
+     }
+     int isEmpty()
+     {
+         if(top==-1)
+            return 1;
+         else
+             return 0;
+     }
+     int isFull()
+     {
+        if(top==SIZE-1)
+           return 1;
+        else
+            return 0;
+     }
+     int peek()
+     {
+         if (isEmpty()==1)
+             return -1;
+         else
+             return data[top];
+     }
+     
+};
+
+int main()
+{
+    cout<<"stati implementation of stack";
+    stack st;
+    st.push(10);
+    st.push(20);
+    cout<<"stack is Empty?"<<st.isEmpty();
+    cout<<"stack is Full?"<<st.isFull();
+    cout<<"Element is at Top Position"<<st.peek()<<endl;
+    cout<<"Element is removed from stack"<<st.pop()<<endl;
+    cout<<"Element is removed from stack"<<st.pop()<<endl;
+    cout<<"Element is removed from stack"<<st.pop()<<endl;
+    return 0;
+    
+}
