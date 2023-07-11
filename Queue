@@ -1,0 +1,68 @@
+#include <iostream>
+#define SIZE 2
+using namespace std;
+
+class Queue
+{
+    int data[SIZE];
+    int rear,front;
+    
+    public:
+     Queue()
+     {
+         front=rear=-1;
+     }
+     void insert(int element)
+     {
+         if (isFull()==1)
+             cout<<"Queue is Full....";
+         else 
+             data[++rear]=element;   
+     }
+     int remove()
+     {
+        if (isEmpty()==1)
+            return -1;
+        else
+            return data[++front];
+     }
+     int isEmpty()
+     {
+         if(rear==front)
+            return 1;
+         else
+             return 0;
+     }
+     int isFull()
+     {
+        if(rear==SIZE-1)
+           return 1;
+        else
+            return 0;
+     }
+     int peek()
+     {
+         if (isEmpty()==1)
+             return -1;
+         else
+             return data[front];
+     }
+     
+};
+
+int main()
+{
+    cout<<"static implementation of Queue \n";
+    Queue q;
+    q.insert(10);
+    q.insert(20);
+    q.insert(30);
+    cout<<"\n Queue is Empty?"<<q.isEmpty();
+    cout<<"Queue is Full?"<<q.isFull();
+    cout<<"Element is at Top Position"<<q.peek()<<endl;
+    cout<<"Element is removed from Queue"<<q.remove()<<endl;
+    cout<<"Element is removed from Queue"<<q.remove()<<endl;
+    cout<<"Element is removed from Queue"<<q.remove()<<endl;
+    return 0;
+    
+}
